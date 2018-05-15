@@ -7,12 +7,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var app = express();
+
+
 // load env
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").load();
 }
-
-var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -49,8 +50,9 @@ const user = process.env.MDB_USER;
 const passwd = process.env.MDB_PASSWORD;
 
 mongoose
-  .connect(`mongodb://${user}:${passwd}@ds123770.mlab.com:23770/is445`)
+  .connect(`mongodb://${user}:${passwd}@ds221990.mlab.com:21990/crud-project`)
   .then(() => console.log("connection successful"))
   .catch(err => console.error(err));
 
 module.exports = app;
+
